@@ -47,6 +47,12 @@ export interface SuggestedOutfit {
   items: Array<{ name: string; color: string; shopUrl: string }>;
 }
 
+export interface WardrobeCategory {
+  category: 'Shirt' | 'T-Shirt' | 'Pants' | 'Joggers' | 'Chinos' | 'Bootcut' | 'Jeans';
+  recommendation: string;
+  shopUrl: string;
+}
+
 export interface AnalysisResponse {
   detectedItems: Array<{ type: string; color: string; pattern: string }>;
   styleAesthetic: string;
@@ -56,6 +62,25 @@ export interface AnalysisResponse {
   styleConfidence: number;
   palette: string[];
   feedback: string;
+  evolvedLookDescription: string;
+  addons: Array<{ name: string; reason: string; shopUrl: string }>;
+  grooming: {
+    hairstyle: string;
+    beardStyle: string;
+    saloonAdvice: string;
+  };
+  skincare: {
+    advice: string;
+    routine: string[];
+    products: Array<{ name: string; brand: string; shopUrl: string }>;
+  };
+  wardrobe: WardrobeCategory[];
+  sneakers: Array<{
+    model: string;
+    colorway: string;
+    reason: string;
+    shopUrl: string;
+  }>;
 }
 
 export interface ChatMessage {
